@@ -4,7 +4,7 @@ __all__ = ["CheckProxys"]
 import urllib2
 import collections
 import logging
-
+import sys
 from Proxy import Proxy, ProxyException
 from threading import Thread, Lock
 from thread import LockType
@@ -45,6 +45,7 @@ class ProxyCheckThread(Thread):
 		else:
 			with self.lock:
 				print(self.proxy)
+				sys.stdout.flush()
 
 
 class MyWorkerTimeOutThread(Thread):
